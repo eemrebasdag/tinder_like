@@ -21,11 +21,70 @@ class Card {
   };
 
   #init = () => {
+    //CARD INFO SECTION
+
+    const personalInfo = document.createElement("div");
+    personalInfo.classList.add("personal-info");
+    const nameInfo = document.createElement("div");
+    nameInfo.classList.add("name");
+    const name = document.createElement("h3");
+    name.innerHTML = "Name, ";
+    nameInfo.append(name);
+    const age = document.createElement("h3");
+    age.innerHTML = "19";
+    nameInfo.append(age);
+
+    const activeSituation = document.createElement("div");
+    activeSituation.classList.add("active-situation");
+    const activeIcon = document.createElement("h4");
+    activeIcon.innerHTML = "•";
+    const activeText = document.createElement("h4");
+    activeText.innerHTML = "Recently Active";
+    activeSituation.append(activeIcon);
+    activeSituation.append(activeText);
+
+    const hobbiesInfo = document.createElement("div");
+    hobbiesInfo.classList.add("hobbies");
+    const hobbies1 = document.createElement("h4");
+    hobbies1.innerHTML = "Instagram";
+    const hobbies2 = document.createElement("h4");
+    hobbies2.innerHTML = "Travel";
+    const hobbies3 = document.createElement("h4");
+    hobbies3.innerHTML = "Trying new things";
+    hobbiesInfo.append(hobbies1);
+    hobbiesInfo.append(hobbies2);
+    hobbiesInfo.append(hobbies3);
+
+    personalInfo.append(nameInfo);
+    personalInfo.append(activeSituation);
+    personalInfo.append(hobbiesInfo);
+
+    // BUTTONS SECTION
+
+    const buttons = document.createElement("div");
+    buttons.classList.add("buttons");
+    const button1 = document.createElement("i");
+    const button2 = document.createElement("i");
+    const button3 = document.createElement("i");
+    const button4 = document.createElement("i");
+    const button5 = document.createElement("i");
+    button1.classList.add("fa-solid", "fa-rotate-right", "rotate");
+    button2.classList.add("fa-solid", "fa-xmark", "x-mark");
+    button3.classList.add("fa-solid", "fa-star", "star");
+    button4.classList.add("fa-solid", "fa-heart", "heart");
+    button5.classList.add("fa-sharp", "fa-solid", "fa-bolt", "bolt");
+    button2.setAttribute("id", "cancelButton");
+    button4.setAttribute("id", "likeButton");
+    buttons.append(button1, button2, button3, button4, button5);
+
     const card = document.createElement("div");
     card.classList.add("card");
     const img = document.createElement("img");
     img.src = this.imageUrl;
+    img.style.position = "relative";
     card.append(img);
+    card.append(personalInfo);
+    card.append(buttons);
     this.element = card;
     if (this.#isTouchDevice()) {
       this.#listenToTouchEvents();
@@ -120,6 +179,7 @@ class Card {
     setTimeout(() => {
       this.element.remove();
     }, 1000);
+
     if (typeof this.onDismiss === "function") {
       this.onDismiss();
     }

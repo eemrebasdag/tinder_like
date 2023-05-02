@@ -2,8 +2,8 @@
 const swiper = document.querySelector("#swiper");
 const like = document.querySelector("#like");
 const dislike = document.querySelector("#dislike");
-const dislikeButton = document.getElementById("cancelButton");
-const likeButton = document.getElementById("likeButton");
+const dislikeButton = document.querySelector("#cancelButton");
+const likeButton = document.querySelector("#likeButton");
 
 // constants
 const urls = [
