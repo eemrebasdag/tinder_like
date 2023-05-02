@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: url("../background.jpeg");
+}
+
+#swiper {
+  height: 70vh;
+  aspect-ratio: 2 / 3;
+  perspective: 1000px;
+  perspective-origin: center 50%;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.personal-info {
+  position: absolute;
+  z-index: 2;
+  bottom: 21%;
+  left: 5%;
+}
+
+.personal-info .name {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.personal-info .name h3 {
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.personal-info .name h3 + h3 {
+  color: white;
+  font-size: 30px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.personal-info .active-situation {
+  display: flex;
+  align-items: center;
+}
+
+.personal-info .active-situation h4:first-of-type {
+  margin-right: 5px;
+  font-size: 20px;
+  color: #4bb543;
+}
+
+.personal-info .active-situation h4:first-of-type + h4 {
+  font-size: 15px;
+  color: white;
+  font-weight: 300;
+}
+
+.personal-info .hobbies {
+  display: flex;
+  margin-top: 10px;
+}
+
+.personal-info .hobbies h4 {
+  background-color: rgba(128, 128, 128, 0.6);
+  color: white;
+  font-weight: 300;
+  margin-right: 20px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.buttons {
+  position: absolute;
+  right: 10%;
+  width: 80%;
+  z-index: 1;
+  bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons .heart {
+  font-size: 50px;
+  color: #4bb543;
+  border: 1px solid #4bb543;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons .heart:hover {
+  transition: 1s;
+  color: white;
+  border: 1px solid #4bb543;
+  background-color: #4bb543;
+}
+
+.buttons .x-mark {
+  display: flex;
+  font-size: 50px;
+  color: #c70000;
+  border: 1px solid #c70000;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons .x-mark:hover {
+  transition: 1s;
+  color: white;
+  border: 1px solid #c70000;
+  background-color: #c70000;
+}
+
+.buttons .rotate {
+  display: flex;
+  font-size: 23px;
+  color: #808080;
+  border: 1px solid #808080;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons .rotate:hover {
+  transition: 1s;
+  color: white;
+  border: 1px solid #808080;
+  background-color: #808080;
+}
+
+.buttons .star {
+  display: flex;
+  font-size: 23px;
+  color: #00008b;
+  border: 1px solid #00008b;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons .star:hover {
+  transition: 1s;
+  color: white;
+  border: 1px solid #00008b;
+  background-color: #00008b;
+}
+
+.buttons .bolt {
+  display: flex;
+  font-size: 23px;
+  color: #65316f;
+  border: 1px solid #65316f;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons .bolt:hover {
+  transition: 1s;
+  color: white;
+  border: 1px solid #65316f;
+  background-color: #65316f;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: drop-shadow(2px 2px 20px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.5s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
+  z-index: 1;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+#like,
+#dislike {
+  font-size: 16vh;
+  border-radius: 50%;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  animation-name: animation1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  /* don't run animation at the beginning */
+  animation-play-state: paused;
+}
+
+#like.trigger,
+#dislike.trigger {
+  animation-name: animation2;
+}
+
+#like {
+  color: red;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#dislike {
+  color: #ccc;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes animation1 {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation2 {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

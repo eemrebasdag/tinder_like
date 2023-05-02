@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dating App Sample</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/88e3271e0b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <ion-icon id="dislike" name="heart-dislike"></ion-icon>
+    <div id="swiper">
+      <div class="personal-info">
+        <div class="name">
+          <h3>Name</h3>
+          <h3>19</h3>
+        </div>
+        <div class="active-situation">
+          <h4>•</h4>
+          <h4>Recently Active</h4>
+        </div>
+        <div class="hobbies">
+          <h4>Instagram</h4>
+          <h4>Travel</h4>
+          <h4>Trying new things</h4>
+        </div>
+      </div>
+      <div class="buttons">
+        <i class="fa-solid fa-rotate-right rotate"></i>
+        <i class="fa-solid fa-xmark x-mark" id="cancelButton"></i>
+        <i class="fa-solid fa-star star"></i>
+        <i class="fa-solid fa-heart heart" id="likeButton"></i>
+        <i class="fa-sharp fa-solid fa-bolt bolt"></i>
+      </div>
+    </div>
+
+    <ion-icon id="like" name="heart"></ion-icon>
+
+    <script src="./scripts/card.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
